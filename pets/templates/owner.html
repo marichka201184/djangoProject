@@ -5,9 +5,13 @@
 
 {% block body %}
     {% for owner in owner %}
-        <h2>{{ owner.name }}</h2>
+        <a href="{% url 'pets' owner.id %}"><h2>{{ owner.name }}</h2></a>
         <div>{{ owner.age }}</div>
         <div>{{ owner.pet_name }}</div>
     {% endfor %}
-
+<form method="post">
+{% csrf_token %}
+     {{ form1.as_p }}
+    <input type="submit" value="Add new owner">
+    </form>
 {% endblock %}

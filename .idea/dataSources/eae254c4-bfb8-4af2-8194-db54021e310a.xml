@@ -1390,19 +1390,35 @@ model</ColNames>
       <Position>5</Position>
       <DataType>int|0s</DataType>
     </column>
-    <index id="390" parent="294" name="pet_id_uindex">
+    <column id="390" parent="294" name="photo">
+      <Position>6</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="391" parent="294" name="pet_id_uindex">
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="391" parent="294" name="PRIMARY">
+    <index id="392" parent="294" name="pet_owner_fk">
+      <ColNames>owner_name_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="393" parent="294" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="392" parent="294" name="pet_id_uindex">
+    <key id="394" parent="294" name="pet_id_uindex">
       <ColNames>id</ColNames>
       <UnderlyingIndexName>pet_id_uindex</UnderlyingIndexName>
     </key>
+    <foreign-key id="395" parent="294" name="pet_owner_fk">
+      <ColNames>owner_name_id</ColNames>
+      <RefTableName>owner</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
   </database-model>
 </dataSource>

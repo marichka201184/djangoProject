@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Pets
+{% endblock %}
+
+{% block body %}
+    {% for pet in pets %}
+        <h2>{{ pet.name }}</h2>>
+         {% if pet.photo %}
+            <img src="{{ pet.photo.url }}" alt="{{ pet.name }}">
+         {% endif %}
+
+        <div>{{ pet.age }}</div>
+        <div>{{ pet.breed }}</div>
+    {% endfor %}
+<form method="post">
+{% csrf_token %}
+     {{ form.as_p }}
+    <input type="submit" value="Add new pet">
+    </form>
+{% endblock %}
